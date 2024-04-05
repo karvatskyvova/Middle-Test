@@ -1,0 +1,17 @@
+# Virtual environment
+venv/
+
+# Compiled Python files
+*.pyc
+
+# Temporary files
+*.tmp
+
+# Output files
+output.txt
+
+# Ignore pytest cache
+__pycache__/
+
+# Ignore test reports
+pytest_report/
