@@ -43,9 +43,13 @@ def sample_text_file(tmp_path):
      [('how', 3), ('are', 2), ('your', 2), ('hello', 1), ('world', 1), ('you', 1), ('friends', 1), ('is', 1), ('dog', 1)]),
 ])
 def test_find_top_n_words(input_text, expected_output):
-    """Tests the find_top_n_words function."""
     top_words = find_top_n_words(input_text, n=9)
     assert top_words == expected_output
+
+def test_read_file(sample_text_file):
+    content = read_file(sample_text_file)
+    assert content == "Hello world! How are you?How are your friends?How is your dog?"
+
 
 if __name__ == "__main__":
     pytest.main([__file__])
