@@ -50,6 +50,14 @@ def test_read_file(sample_text_file):
     content = read_file(sample_text_file)
     assert content == "Hello world! How are you?How are your friends?How is your dog?"
 
+def test_write_to_file(tmp_path):
+    """Tests the write_to_file function."""
+    word_counts = [('word1', 5), ('word2', 3), ('word3', 2), ('word4', 1)]
+    output_file = tmp_path / "output.txt"
+    write_to_file(word_counts, output_file)
+    with open(output_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    assert lines == ["word1-5\n", "word2-3\n", "word3-2\n", "word4-1\n"]
 
 if __name__ == "__main__":
     pytest.main([__file__])
